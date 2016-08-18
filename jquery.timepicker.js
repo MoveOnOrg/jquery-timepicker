@@ -70,8 +70,9 @@
 					if (settings.disableTextInput) {
 						self.on('keydown.timepicker', _disableTextInputHandler);
 					}
-
-					_formatValue.call(self.get(0));
+					if (settings.disableInitFormat) {
+						_formatValue.call(self.get(0));
+					}
 				}
 			});
 		},
@@ -1179,7 +1180,8 @@
 		closeOnWindowScroll: false,
 		disableTextInput: false,
 		disableTimeRanges: [],
-		disableTouchKeyboard: false,
+                disableTouchKeyboard: false,
+                disableInitFormat: false,
 		durationTime: null,
 		forceRoundTime: false,
 		maxTime: null,
